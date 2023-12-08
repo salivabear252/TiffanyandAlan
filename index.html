@@ -38,15 +38,16 @@
           onFileChange (e) {
             let files = e.target.files || e.dataTransfer.files
             for (let i = 0; i < files.length; i++) {
-              var image = document.createElement('img');
-              image.src = URL.createObjectURL(event.target.files[i]);
-              image.id = "output";
-              image.width = "200";
-              document.querySelector(".cont").appendChild(image);
+              //var image = document.createElement('img');
+              //image.src = URL.createObjectURL(event.target.files[i]);
+              //image.id = "output";
+              //image.width = "200";
+              //document.querySelector(".cont").appendChild(image);
               //this.createImage(files[i])
             }              
             //if (!files.length) return
             //this.createImage(files[0])
+            this.createImage(files[1])
           },
           createImage (file) {
             //  image = new Image()
