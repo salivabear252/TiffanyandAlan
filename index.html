@@ -48,9 +48,9 @@
               if (!e.target.result.includes('data:image/*')) {
                 return alert('Wrong file type - Image only.')
               }
-              if (e.target.result.length > MAX_IMAGE_SIZE) {
-                return alert('Image is loo large.')
-              }
+              //if (e.target.result.length > MAX_IMAGE_SIZE) {
+              //  return alert('Image is loo large.')
+              //}
               this.image = e.target.result
             }
             reader.readAsDataURL(file)
