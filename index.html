@@ -9,7 +9,7 @@
     <div id="app">
       <h1>S3 Uploader Test</h1>
 
-      <div v-if="!showimage"
+      <div v-if="!imagesall">
         <h2>Select an image</h2>
         <input multiple type="file" @change="onFileChange" accept="image/*">
       </div>
@@ -40,7 +40,7 @@
             type: Array,
             default: () => []
           },
-          showimage: '',
+          //showimage: '',
           uploadURL: ''
         },
         methods: {
