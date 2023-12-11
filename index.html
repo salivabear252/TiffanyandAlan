@@ -14,7 +14,7 @@
         <input multiple type="file" @change="onFileChange" accept="image/*">
       </div>
       <div v-else>
-        <img :src="image" />
+        <img :src="image[0]" />
         <button v-if="!uploadURL" @click="removeImage">Remove image</button>
         <button v-if="!uploadURL" @click="uploadImage">Upload image</button>
       </div>
@@ -27,11 +27,18 @@
       /* ENTER YOUR ENDPOINT HERE */
 
       const API_ENDPOINT = 'https://8gvb3b165g.execute-api.us-east-2.amazonaws.com/default/getPresignedURL' // e.g. https://ab1234ab123.execute-api.us-east-1.amazonaws.com/uploads
-
+      //
+      var int_totalphoto = 0
+      var int_k = 0
+      
       new Vue({
         el: "#app",
         data: {
-          image: '',
+          //image: '',
+          image: {
+            type: Array,
+            default: () => []
+          },
           uploadURL: ''
         },
         methods: {
@@ -47,7 +54,10 @@
             }              
             //if (!files.length) return
             //this.createImage(files[0])
-            this.createImage(files[1])
+            
+            int_totalphoto = files.length
+            this.createImage(files[int_k])
+            
           },
           createImage (file) {
             //  image = new Image()
