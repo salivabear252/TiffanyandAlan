@@ -52,13 +52,15 @@
               //image.width = "200";
               //document.querySelector(".cont").appendChild(image);
               //this.createImage(files[i])
+              int_k = i
+              this.createImage(files[int_k])
             }              
             //if (!files.length) return
             //this.createImage(files[0])
             
             int_totalphoto = files.length
-            int_k = i
-            this.createImage(files[int_k])
+            //int_k = i
+            //this.createImage(files[int_k])
             
           },
           createImage (file) {
