@@ -9,14 +9,14 @@
     <div id="app">
       <h1>S3 Uploader Test</h1>
 
-      <div v-if="!showimage">
+      <div v-if="!image">
         <h2>Select an image</h2>
         <input multiple type="file" @change="onFileChange" accept="image/*">
       </div>
       <div v-else>
-        <div id="imagesall"></div>
-        <button v-if="uploadURL" @click="removeImage">Remove image</button>
-        <button v-if="uploadURL" @click="uploadImage">Upload image</button>
+        <img :src="image" />
+        <button v-if="!uploadURL" @click="removeImage">Remove image</button>
+        <button v-if="!uploadURL" @click="uploadImage">Upload image</button>
       </div>
       <h2 v-if="uploadURL">Success! Image uploaded to bucket.</h2>
     </div>
@@ -34,7 +34,14 @@
       //var uploaded = 0
 
       new Vue({
+      new Vue({
         el: "#app",
+        data: {
+          image: '',
+          uploadURL: ''
+        },
+          
+ /*     el: "#app",
         data: {
           image: {
             type: Array,
@@ -42,7 +49,7 @@
           },
           showimage: '',
           uploadURL: ''
-        },
+        },*/
         methods: {
           onFileChange (e) {
             let files = e.target.files || e.dataTransfer.files
