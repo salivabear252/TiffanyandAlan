@@ -8,7 +8,7 @@
   <body>
     <div id="app">
       <h1>S3 Uploader Test</h1>
-
+  
       <div v-if="!image">
         <h2>Select an image</h2>
         <input multiple type="file" @change="onFileChange" accept="image/*">
@@ -22,78 +22,41 @@
     </div>
   
     <script>
-      //const MAX_IMAGE_SIZE = 1000000
+      const MAX_IMAGE_SIZE = 1000000
 
       /* ENTER YOUR ENDPOINT HERE */
 
       const API_ENDPOINT = 'https://8gvb3b165g.execute-api.us-east-2.amazonaws.com/default/getPresignedURL' // e.g. https://ab1234ab123.execute-api.us-east-1.amazonaws.com/uploads
-      //
-      var int_totalphoto = 0
-      var int_k = 0
-      var imagesall = document.getElementById('imagesall')
-      //var uploaded = 0
 
-      new Vue({
       new Vue({
         el: "#app",
         data: {
           image: '',
           uploadURL: ''
         },
-          
- /*     el: "#app",
-        data: {
-          image: {
-            type: Array,
-            default: () => []
-          },
-          showimage: '',
-          uploadURL: ''
-        },*/
         methods: {
           onFileChange (e) {
             let files = e.target.files || e.dataTransfer.files
-            for (let i = 0; i < files.length; i++) {
-              //var image = document.createElement('img');
-              //image.src = URL.createObjectURL(event.target.files[i]);
-              //image.id = "output";
-              //image.width = "200";
-              //document.querySelector(".cont").appendChild(image);
-              //this.createImage(files[i])
-              int_k = i
-              //this.createImage(files[int_k])
-            }              
-            //if (!files.length) return
+            if (!files.length) return
             this.createImage(files[0])
-            
-            int_totalphoto = files.length
-            //int_k = i
-            //this.createImage(files[int_k])
-            
           },
           createImage (file) {
-            //  image = new Image()
+            // var image = new Image()
             let reader = new FileReader()
             reader.onload = (e) => {
-              console.log('length: ', e.target.result.includes('data:image/*'))
-              //if (!e.target.result.includes('data:image/*')) {
-              //  return alert('Wrong file type - Image only.')
-              //}
-              //if (e.target.result.length > MAX_IMAGE_SIZE) {
-              //  return alert('Image is loo large.')
-              //}
+              console.log('length: ', e.target.result.includes('data:image/jpeg'))
+              /*if (!e.target.result.includes('data:image/jpeg')) {
+                return alert('Wrong file type - JPG only.')
+              }
+              if (e.target.result.length > MAX_IMAGE_SIZE) {
+                return alert('Image is loo large.')
+              }*/
               this.image = e.target.result
-              //this.image［int_k］ = e.target.result
-              //imagesall.appendChild(this.image[int_k])
             }
             reader.readAsDataURL(file)
           },
           removeImage: function (e) {
             console.log('Remove clicked')
-            //for (let i = 0; i < int_totalphoto; i++) {
-            //  this.image[i] = ''
-            //}
-            //this.imagesall = ''
             this.image = ''
           },
           uploadImage: async function (e) {
@@ -121,7 +84,6 @@
             this.uploadURL = response.uploadURL.split('?')[0]
           }
         }
-      })
       })
     </script>
     <style type="text/css">
