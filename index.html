@@ -9,12 +9,14 @@
     <div id="app">
       <h1>S3 Uploader Test</h1>
   
-      <div v-if="!imagesall">
+      //<div v-if="!imagesall">
+      <div v-if="int_totalphoto>0"
         <h2>Select an image</h2>
         <input multiple type="file" @change="onFileChange" accept="image/*">
       </div>
       <div v-else>
-        <img :src="imagesall" />
+        <div id="imagesall"></div>
+        //<img :src="imagesall" />
         <button v-if="!uploadURL" @click="removeImage">Remove image</button>
         <button v-if="!uploadURL" @click="uploadImage">Upload image</button>
       </div>
