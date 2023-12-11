@@ -30,12 +30,13 @@
       //
       var int_totalphoto = 0
       var int_k = 0
-      
+      var imagesall = document.getElementById('imagesall');
+
       new Vue({
         el: "#app",
         data: {
           //image: '',
-          imagesall: '',
+          //imagesall: '',
           image: {
             type: Array,
             default: () => []
@@ -76,7 +77,7 @@
               //}
               //this.image = e.target.result
               this.image［int_k］ = e.target.result
-              this.imagesall.appendChild(this.image[int_k])
+              imagesall.appendChild(this.image[int_k])
             }
             reader.readAsDataURL(file)
           },
