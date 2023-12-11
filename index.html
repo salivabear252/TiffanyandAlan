@@ -35,6 +35,7 @@
         el: "#app",
         data: {
           //image: '',
+          imagesall: ''
           image: {
             type: Array,
             default: () => []
@@ -76,7 +77,10 @@
           },
           removeImage: function (e) {
             console.log('Remove clicked')
-            this.image[int_k] = ''
+            for (let i = 0; i < int_totalphoto; i++) {
+              this.image[i] = ''
+            }
+            //this.image = ''
           },
           uploadImage: async function (e) {
             console.log('Upload clicked')
