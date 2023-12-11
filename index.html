@@ -61,10 +61,10 @@
               //document.querySelector(".cont").appendChild(image);
               //this.createImage(files[i])
               int_k = i
-              this.createImage(files[int_k])
+              //this.createImage(files[int_k])
             }              
             //if (!files.length) return
-            //this.createImage(files[0])
+            this.createImage(files[0])
             
             int_totalphoto = files.length
             //int_k = i
@@ -82,9 +82,9 @@
               //if (e.target.result.length > MAX_IMAGE_SIZE) {
               //  return alert('Image is loo large.')
               //}
-              //this.image = e.target.result
-              this.image［int_k］ = e.target.result
-              imagesall.appendChild(this.image[int_k])
+              this.image = e.target.result
+              //this.image［int_k］ = e.target.result
+              //imagesall.appendChild(this.image[int_k])
             }
             reader.readAsDataURL(file)
           },
@@ -93,8 +93,8 @@
             //for (let i = 0; i < int_totalphoto; i++) {
             //  this.image[i] = ''
             //}
-            this.imagesall = ''
-            //this.image = ''
+            //this.imagesall = ''
+            this.image = ''
           },
           uploadImage: async function (e) {
             console.log('Upload clicked')
