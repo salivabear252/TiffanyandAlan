@@ -107,7 +107,7 @@
             console.log('Uploading: ', this.image)
             let binary = atob(this.image.split(',')[1])
             let array = []
-            for ( i = 0; i < binary.length; i++) {
+            for (var i = 0; i < binary.length; i++) {
               array.push(binary.charCodeAt(i))
             }
             let blobData = new Blob([new Uint8Array(array)], {type: 'image/jpeg'})
@@ -121,6 +121,7 @@
             this.uploadURL = response.uploadURL.split('?')[0]
           }
         }
+      })
       })
     </script>
     <style type="text/css">
