@@ -9,7 +9,7 @@
     <div id="app">
       <h1>S3 Uploader Test</h1>
 
-      <div v-if="int_totalphoto>0"
+      <div v-if="!showimage"
         <h2>Select an image</h2>
         <input multiple type="file" @change="onFileChange" accept="image/*">
       </div>
@@ -31,7 +31,7 @@
       var int_totalphoto = 0
       var int_k = 0
       var imagesall = document.getElementById('imagesall')
-      var uploaded = 0
+      //var uploaded = 0
 
       new Vue({
         el: "#app",
@@ -40,6 +40,7 @@
             type: Array,
             default: () => []
           },
+          showimage: '',
           uploadURL: ''
         },
         methods: {
