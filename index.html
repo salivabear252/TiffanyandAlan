@@ -9,12 +9,12 @@
     <div id="app">
       <h1>S3 Uploader Test</h1>
   
-      <div v-if="!image[0]">
+      <div v-if="!imagesall">
         <h2>Select an image</h2>
         <input multiple type="file" @change="onFileChange" accept="image/*">
       </div>
       <div v-else>
-        <img :src="image[0]" />
+        <img :src="imagesall" />
         <button v-if="!uploadURL" @click="removeImage">Remove image</button>
         <button v-if="!uploadURL" @click="uploadImage">Upload image</button>
       </div>
@@ -71,7 +71,9 @@
               //if (e.target.result.length > MAX_IMAGE_SIZE) {
               //  return alert('Image is loo large.')
               //}
-              this.image[int_k] = e.target.result
+              //this.image = e.target.result
+              this.image［int_k］ = e.target.result
+              this.imagesall.append(this.image[int_k])
             }
             reader.readAsDataURL(file)
           },
@@ -80,6 +82,7 @@
             for (let i = 0; i < int_totalphoto; i++) {
               this.image[i] = ''
             }
+            this.imagesall = ''
             //this.image = ''
           },
           uploadImage: async function (e) {
