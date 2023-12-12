@@ -30,6 +30,7 @@
       const API_ENDPOINT = 'https://8gvb3b165g.execute-api.us-east-2.amazonaws.com/default/getPresignedURL' // e.g. https://ab1234ab123.execute-api.us-east-1.amazonaws.com/uploads
       var TotalImages = 0
       var DisplayImage = document.getElementById('DisplayImage');
+      let ArrImg = [];
       
       new Vue({
         el: "#app",
@@ -74,6 +75,7 @@
                 return alert('Image is loo large.')
               }*/
               this.image = e.target.result
+              ArrImg.push(e.target.result)
             }
             reader.readAsDataURL(file)
           },
