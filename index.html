@@ -40,13 +40,14 @@
           onFileChange (e) {
             let files = e.target.files || e.dataTransfer.files
             if (!files.length) return
-            /*for (let i = 0; i < e.target.files.length; i++) {
-              var image = document.createElement('img');
-              image.src = URL.createObjectURL(event.target.files[i]);
-              image.id = "output";
-              image.width = "200";
-              document.querySelector(".cont").appendChild(image);
-            }*/
+            for (let i = 0; i < e.target.files.length; i++) {
+              var newImg = document.createElement('img');
+              newImg.src = URL.createObjectURL(event.target.files[i]);
+              //newImg.id = "output";
+              //newImg.width = "200";
+              //document.querySelector(".cont").appendChild(image);
+              DisplayImage.appendChild(newImg);
+            }
 
             /*var images = ["https://placehold.it/50x50","https://placehold.it/25x25","https://placehold.it/75x75"];
 
