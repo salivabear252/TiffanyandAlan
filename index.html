@@ -83,7 +83,8 @@
           removeImage: function (e) {
             console.log('Remove clicked')
             this.image = ''
-            var DisplayImage = document.getElementById('DisplayImage').reset()
+            //var DisplayImage = document.getElementById('DisplayImage').reset()
+            DisplayImage.reset()
           },
           uploadImage: async function (e) {
             console.log('Upload clicked')
