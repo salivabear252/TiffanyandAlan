@@ -91,6 +91,7 @@
           uploadImage: async function (e) {
             console.log('Upload clicked')
             // Get the presigned URL
+            let array = []
             for (let k = 0; k < ArrImg.length; k++) {
               const response = await axios({
                 method: 'GET',
@@ -101,7 +102,8 @@
               console.log('Uploading: ', ArrImg[k])
               //let binary = atob(this.image.split(',')[1])
               let binary = atob(ArrImg[k].split(',')[1])
-              let array = []
+              //let array = []
+              array.length = 0
               for (var i = 0; i < binary.length; i++) {
                 array.push(binary.charCodeAt(i))
               }
