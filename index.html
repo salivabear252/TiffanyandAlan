@@ -15,7 +15,8 @@
       </div>
       <div v-else>
         <!--<img :src="image" />-->
-        <img :src="DisplayImage" />
+        <div id="target"></div>
+        <!--<img :src="DisplayImage" />-->
         <button v-if="!uploadURL" @click="removeImage">Remove image</button>
         <button v-if="!uploadURL" @click="uploadImage">Upload image</button>
       </div>
