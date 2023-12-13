@@ -6,6 +6,9 @@
     <script src="https://unpkg.com/axios@0.2.1/dist/axios.min.js"></script>
   </head>
   <body>
+    <div id="overlay">
+      <div id="text">Overlay Text</div>
+    </div>
     <div id="app">
       <h1>S3 Uploader Test</h1>
   
@@ -92,6 +95,7 @@
           uploadImage: async function (e) {
             console.log('Upload clicked')
             // Get the presigned URL
+            document.getElementById("overlay").style.display = "block"
             let array = []
             for (let k = 0; k < ArrImg.length; k++) {
               const response = await axios({
@@ -117,6 +121,7 @@
               console.log('Result: ', result)
               // Final URL for the user doesn't need the query string params
               this.uploadURL = response.uploadURL.split('?')[0]
+              document.getElementById("overlay").style.display = "none"
             }
           }
         }
