@@ -10,9 +10,9 @@
       <div id="text">Uploading</div>
     </div>
     <div id="app">
-      <h1>Tiffany & Alan</h1>
-      <h1>2023.12.16</h1>
-      <img src="https://salivabear252.github.io/TiffanyandAlan/Pink%20Elegant%20Circle%20Floral%20Logo.png" width="180%" height="180%">
+      <!--<h1>Tiffany & Alan</h1>-->
+      <!--<h1>2023.12.16</h1>-->
+      <img src="https://salivabear252.github.io/TiffanyandAlan/Pink%20Elegant%20Circle%20Floral%20Logo.png" width="500px" height="500px">
       <div v-if="!image">
         <h2>Select an image</h2>
         <input multiple type="file" @change="onFileChange" accept="image/*">
@@ -24,7 +24,7 @@
         <button v-if="!uploadURL" @click="removeImage">Remove image</button>
         <button v-if="!uploadURL" @click="uploadImage">Upload image</button>
       </div>
-      <h2 v-if="uploadURL">Success! Image uploaded to bucket.</h2>
+      <h2 v-if="uploadURL">Success! Images uploaded. Thank You!</h2>
     </div>
   
     <script>
